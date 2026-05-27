@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多策略智能调仓助手 - 10策略版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 多策略智能调仓助手</h1>
+
+        <!-- 全局设置 -->
+        <div class="settings">
+            <label>💰 总资金 (元): <input type="number" id="totalCapital" value="100000"></label>
+            <button id="resetBtn">重置示例数据</button>
+        </div>
+
+        <!-- 手动添加股票面板 -->
+        <div class="add-stock-panel">
+            <h3>➕ 手动添加股票到指定策略</h3>
+            <select id="addStrategySelect"></select>
+            <input type="text" id="addStockCode" placeholder="股票代码 (如 159915)" style="width: 120px;">
+            <input type="number" id="addStockPrice" placeholder="价格" step="0.01" style="width: 100px;">
+            <input type="number" id="addStockShares" placeholder="数量(股)" step="1" value="0" style="width: 100px;">
+            <button id="confirmAddStockBtn">确认添加</button>
+        </div>
+
+        <!-- 10个策略区域 -->
+        <div id="strategiesContainer" class="strategies-grid"></div>
+
+        <!-- 调仓指令区 -->
+        <div class="trade-section">
+            <h2>📝 输入调仓指令</h2>
+            <input type="text" id="commandInput" placeholder="例如: 策略01 159915 建仓 25%" style="width: 70%; padding: 8px;">
+            <button id="parseBtn">解析指令</button>
+            <div id="outputArea" class="output-box"></div>
+            <button id="executeBtn" style="display:none;">✅ 确认执行并更新持仓</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
